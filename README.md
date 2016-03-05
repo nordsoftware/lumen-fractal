@@ -49,7 +49,7 @@ You can now use `Nord\Lumen\Fractal\FractalService` to access Fractal's anywhere
 
 Here is a few examples on how you can serialize data if you are using Eloquent:
 
-```
+```php
 public function getBook(FractalService $fractal, $id) {
   // load the book model ...
 
@@ -57,7 +57,7 @@ public function getBook(FractalService $fractal, $id) {
 }
 ```
 
-```
+```php
 public function listBooks(FractalService $fractal) {
   // load the book collection ...
 
