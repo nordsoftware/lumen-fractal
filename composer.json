@@ -1,0 +1,23 @@
+{
+    "name": "nordsoftware/lumen-fractal",
+    "description": "Fractal module for the Lumen PHP framework.",
+    "type": "library",
+    "require": {
+        "league/fractal": "^0.13"
+    },
+    "require-dev": {
+        "laravel/lumen-framework": "^5.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoffer Niska",
+            "email": "christofferniska@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nord\\Lumen\\Fractal\\": "src/"
+        }
+    }
+}
