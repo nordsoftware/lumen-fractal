@@ -53,7 +53,7 @@ Here is a few examples on how you can serialize data if you are using Eloquent:
 public function getBook(FractalService $fractal, $id) {
   // load the book model ...
 
-  return response()->json($fractal->item($book, new BookTransformer));
+  return response()->json($fractal->item($book, new BookTransformer)->toArray());
 }
 ```
 
@@ -61,7 +61,7 @@ public function getBook(FractalService $fractal, $id) {
 public function listBooks(FractalService $fractal) {
   // load the book collection ...
 
-  return response()->json($fractal->collection($books, new BookTransformer));
+  return response()->json($fractal->collection($books, new BookTransformer)->toArray());
 }
 ```
 
