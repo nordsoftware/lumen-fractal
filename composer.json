@@ -1,6 +1,7 @@
 {
     "name": "nordsoftware/lumen-fractal",
     "description": "Fractal module for the Lumen PHP framework.",
+    "keywords": ["lumen", "fractal", "serialization", "json", "api", "laravel"],
     "type": "library",
     "require": {
         "league/fractal": "^0.13"
