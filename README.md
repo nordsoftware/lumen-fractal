@@ -1,5 +1,7 @@
 # Lumen Fractal
 
+[![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
+
 [Fractal](http://fractal.thephpleague.com/) module for the [Lumen PHP framework](http://lumen.laravel.com/).
 
 ## Requirements
