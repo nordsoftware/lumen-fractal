@@ -11,34 +11,46 @@ use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 class FractalServiceProvider extends ServiceProvider
 {
 
+    const CONFIG_KEY = 'fractal';
+
     /**
      * @inheritdoc
      */
     public function register()
     {
-        $this->registerContainerBindings($this->app, $this->app['config']);
+        $this->app->configure(self::CONFIG_KEY);
+
+        $this->registerBindings($this->app, $this->app['config']);
+        $this->registerFacades();
     }
 
 
     /**
-     * @param Application|Container $app
-     * @param ConfigRepository      $config
+     * @param Container        $container
+     * @param ConfigRepository $config
      */
-    protected function registerContainerBindings(Application $app, ConfigRepository $config)
+    protected function registerBindings(Container $container, ConfigRepository $config)
     {
-        $app->configure('fractal');
-
-        $app->singleton(FractalService::class, function () use ($config) {
+        $container->singleton(FractalService::class, function () use ($config) {
             $fractal = new FractalService();
 
-            $this->configureService($fractal, $config->get('fractal'));
+            $this->configureService($fractal, $config[self::CONFIG_KEY]);
 
             return $fractal;
         });
 
-        $app->alias(FractalService::class, FractalServiceContract::class);
+        $container->alias(FractalService::class, FractalServiceContract::class);
 
-        if (!class_exists(FractalService::class)) {
+
+    }
+
+
+    /**
+     *
+     */
+    protected function registerFacades()
+    {
+        if (!class_exists('Fractal')) {
             class_alias(FractalFacade::class, 'Fractal');
         }
     }

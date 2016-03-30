@@ -1,9 +1,15 @@
 # Lumen Fractal
 
+[![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
+[![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
+[![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
+[![License](https://poser.pugx.org/nordsoftware/lumen-fractal/license)](https://packagist.org/packages/nordsoftware/lumen-fractal)
+
 [Fractal](http://fractal.thephpleague.com/) module for the [Lumen PHP framework](http://lumen.laravel.com/).
 
 ## Requirements
 
+- PHP 5.3 or newer
 - Lumen 5.1 or newer
 - [Composer](http://getcomposer.org)
 
@@ -45,7 +51,7 @@ $app->middleware([
 
 ## Usage
 
-You can now use `Nord\Lumen\Fractal\FractalService` to access Fractal's anywhere in your application.
+You can now use `Nord\Lumen\Fractal\FractalService` to access Fractal anywhere in your application.
 
 Here is a few examples on how you can serialize data if you are using Eloquent:
 

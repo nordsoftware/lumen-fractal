@@ -4,13 +4,12 @@ namespace Nord\Lumen\Fractal;
 
 use Closure;
 use Illuminate\Http\Request;
-use Spatie\Fractal\Fractal;
 
 class FractalMiddleware
 {
 
     /**
-     * @var Fractal
+     * @var FractalService
      */
     private $service;
 
