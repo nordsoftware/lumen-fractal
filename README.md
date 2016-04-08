@@ -1,6 +1,5 @@
 # Lumen Fractal
 [![Build Status](https://travis-ci.org/nordsoftware/lumen-fractal.svg?branch=master)](https://travis-ci.org/nordsoftware/lumen-fractal)
-[![Coverage Status](https://coveralls.io/repos/github/nordsoftware/lumen-fractal/badge.svg?branch=master)](https://coveralls.io/github/nordsoftware/lumen-fractal?branch=master)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
@@ -10,7 +9,7 @@
 
 ## Requirements
 
-- PHP 5.3 or newer
+- PHP 5.6 or newer
 - Lumen 5.1 or newer
 - [Composer](http://getcomposer.org)
 
