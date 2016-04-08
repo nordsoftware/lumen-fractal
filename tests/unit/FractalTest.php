@@ -4,6 +4,7 @@ use Illuminate\Support\Collection;
 use Nord\Lumen\Fractal\FractalService;
 use Nord\Lumen\Tests\Files\Book;
 use Nord\Lumen\Tests\Files\BookTransformer;
+use Nord\Lumen\Tests\Files\Author;
 
 /**
  * Class FractalTest.
@@ -24,16 +25,28 @@ class FractalTest extends \Codeception\TestCase\Test
     protected $service;
 
     /**
+     * @inheritdoc
+     */
+    protected function _before()
+    {
+        $this->service = new FractalService();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function _after()
+    {
+        $this->service = null;
+    }
+
+    /**
      * Tests the fractal item.
      */
     public function testItem()
     {
-        $this->service = new FractalService();
-
-        $book = new Book();
-        $book->setTitle('Test Book');
-        $book->setAuthor('Test Author');
-        $book->setPublisher('Test Publisher');
+        $author = new Author('Test', 'Author');
+        $book   = new Book('Test Book', 'Test Publisher', $author);
 
         $data = $this->service->item($book, new BookTransformer())->toArray();
 
