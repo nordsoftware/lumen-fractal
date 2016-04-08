@@ -1,24 +1,48 @@
 {
-    "name": "nordsoftware/lumen-fractal",
-    "description": "Fractal module for the Lumen PHP framework.",
-    "keywords": ["lumen", "fractal", "serialization", "json", "api", "laravel"],
-    "type": "library",
-    "require": {
-        "league/fractal": "^0.13"
+  "name": "nordsoftware/lumen-fractal",
+  "description": "Fractal module for the Lumen PHP framework.",
+  "keywords": [
+    "lumen",
+    "fractal",
+    "serialization",
+    "json",
+    "api",
+    "laravel"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christoffer Niska",
+      "email": "christofferniska@gmail.com"
     },
-    "require-dev": {
-        "laravel/lumen-framework": "^5.1"
+    {
+      "name": "Kenneth Söderlund",
+      "email": "kenneth.soderlund@nordsoftware.com"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Christoffer Niska",
-            "email": "christofferniska@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Nord\\Lumen\\Fractal\\": "src/"
-        }
+    {
+      "name": "Jonas Engström",
+      "email": "jonas.engstrom@nordsoftware.com"
     }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "league/fractal": "^0.13"
+  },
+  "require-dev": {
+    "laravel/lumen-framework": "^5.1",
+    "codeception/codeception": "^2.1",
+    "codeception/specify": "^0.4.3",
+    "codeception/verify": "^0.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nord\\Lumen\\Fractal\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  }
 }
