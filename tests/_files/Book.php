@@ -11,7 +11,7 @@ class Book
 {
 
     /**
-     * @var string $author
+     * @var Author $author
      */
     private $author;
 
@@ -26,7 +26,21 @@ class Book
     private $publisher;
 
     /**
-     * @return string
+     * Book constructor.
+     *
+     * @param string $title
+     * @param string $publisher
+     * @param Author $author
+     */
+    public function __construct($title, $publisher, Author $author)
+    {
+        $this->title     = $title;
+        $this->publisher = $publisher;
+        $this->author    = $author;
+    }
+
+    /**
+     * @return Author
      */
     public function getAuthor()
     {

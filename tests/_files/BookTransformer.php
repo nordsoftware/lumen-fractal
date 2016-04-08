@@ -13,6 +13,13 @@ class BookTransformer extends TransformerAbstract
 {
 
     /**
+     * @inheritdoc
+     */
+    protected $defaultIncludes = [
+        'author',
+    ];
+
+    /**
      * @param Book $book
      *
      * @return array
@@ -21,8 +28,17 @@ class BookTransformer extends TransformerAbstract
     {
         return [
             'title'     => $book->getTitle(),
-            'author'    => $book->getAuthor(),
             'publisher' => $book->getPublisher(),
         ];
+    }
+
+    /**
+     * @param Book $book
+     *
+     * @return \League\Fractal\Resource\Item
+     */
+    public function includeAuthor(Book $book)
+    {
+        return $this->item($book->getAuthor(), new AuthorTransformer());
     }
 }
