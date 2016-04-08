@@ -1,5 +1,6 @@
 # Lumen Fractal
-
+[![Build Status](https://travis-ci.org/nordsoftware/lumen-fractal.svg?branch=master)](https://travis-ci.org/nordsoftware/lumen-fractal)
+[![Coverage Status](https://coveralls.io/repos/github/nordsoftware/lumen-fractal/badge.svg?branch=master)](https://coveralls.io/github/nordsoftware/lumen-fractal?branch=master)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
@@ -75,10 +76,20 @@ public function listBooks(FractalService $fractal) {
 
 Please read the [guidelines](.github/CONTRIBUTING.md).
 
-## Test
+## Running tests
 
- Unit tests coming soon! As soon as we have the time to write them.
+Clone the project and install its dependencies by running:
+
+```sh
+composer install
+```
+
+Run the following command to run the test suite:
+
+```sh
+vendor/bin/codecept run unit
+```
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).

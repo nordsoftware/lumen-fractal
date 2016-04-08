@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Collection;
 use Nord\Lumen\Fractal\FractalService;
 use Nord\Lumen\Tests\Files\Book;
 use Nord\Lumen\Tests\Files\BookTransformer;
@@ -25,19 +24,29 @@ class FractalTest extends \Codeception\TestCase\Test
     protected $service;
 
     /**
-     * @inheritdoc
+     * @var Author
      */
-    protected function _before()
-    {
-        $this->service = new FractalService();
-    }
+    private $author;
+
+    /**
+     * @var Book
+     */
+    private $book;
+
+    /**
+     * @var BookTransformer
+     */
+    private $transformer;
 
     /**
      * @inheritdoc
      */
     protected function _after()
     {
-        $this->service = null;
+        $this->service     = null;
+        $this->book        = null;
+        $this->author      = null;
+        $this->transformer = null;
     }
 
     /**
@@ -45,19 +54,19 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testItem()
     {
-        $author = new Author('Test', 'Author');
-        $book   = new Book('Test Book', 'Test Publisher', $author);
+        $this->service     = new FractalService();
+        $this->author      = new Author('Test', 'Author');
+        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->transformer = new BookTransformer();
 
-        $item = $this->service->item($book, new BookTransformer())->toArray();
-
-        $this->specify('The key "data" is required.', function () use ($item) {
+        $this->specify('The key "data" is required.', function () {
+            $item = $this->service->item($this->book, $this->transformer)->toArray();
             verify($item)->hasKey('data');
         });
 
-        $bookData = $item['data'];
-
-        $this->specify('The book title must equal "Test Book".', function () use ($bookData) {
-            verify($bookData['title'])->equals('Test Book');
+        $this->specify('The book title must equal "Test Book".', function () {
+            $item = $this->service->item($this->book, $this->transformer)->toArray();
+            verify($item['data']['title'])->equals('Test Book');
         });
     }
 
@@ -66,18 +75,20 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testCollection()
     {
+        $this->service     = new FractalService();
+        $this->author      = new Author('Test', 'Author');
+        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->transformer = new BookTransformer();
 
-        $books = array();
-
+        $books = [];
         for ($i = 0; $i < 5; $i++) {
             $author  = new Author('Test ' . $i, 'Author' . $i);
             $book    = new Book('Test Book ' . $i, 'Test Publisher ' . $i, $author);
             $books[] = $book;
         }
 
-        $collection = $this->service->collection($books, new BookTransformer())->toArray();
-
-        $this->specify('Array does not contain specified amount of items', function () use ($collection) {
+        $this->specify('Array does not contain specified amount of items', function () use ($books) {
+            $collection = $this->service->collection($books, $this->transformer)->toArray();
             verify(count($collection['data']))->equals(5);
         });
     }
@@ -87,21 +98,21 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testAuthorInclude()
     {
-        $author = new Author('Test', 'Author');
-        $book   = new Book('Test Book', 'Test Publisher', $author);
+        $this->service     = new FractalService();
+        $this->author      = new Author('Test', 'Author');
+        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->transformer = new BookTransformer();
 
-        $item = $this->service->item($book, new BookTransformer())->toArray();
-
-        $this->specify('The key "data" is required.', function () use ($item) {
+        $this->specify('The key "data" is required.', function () {
+            $item = $this->service->item($this->book, $this->transformer)->toArray();
             verify($item)->hasKey('data');
         });
 
-        $bookData = $item['data'];
-
-        $this->specify('Author last name must be "Author".', function () use ($bookData) {
-            verify($bookData['author'])->hasKey('data');
-            verify($bookData['author']['data'])->hasKey('lastName');
-            verify($bookData['author']['data']['lastName'])->equals('Author');
+        $this->specify('Author last name must be "Author".', function () {
+            $item = $this->service->item($this->book, $this->transformer)->toArray();
+            verify($item['data']['author'])->hasKey('data');
+            verify($item['data']['author']['data'])->hasKey('lastName');
+            verify($item['data']['author']['data']['lastName'])->equals('Author');
         });
     }
 }
