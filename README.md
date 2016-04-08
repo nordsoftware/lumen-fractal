@@ -1,5 +1,5 @@
 # Lumen Fractal
-
+[![Build Status](https://travis-ci.org/nordsoftware/lumen-fractal.svg?branch=master)](https://travis-ci.org/nordsoftware/lumen-fractal)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
@@ -9,7 +9,7 @@
 
 ## Requirements
 
-- PHP 5.3 or newer
+- PHP 5.6 or newer
 - Lumen 5.1 or newer
 - [Composer](http://getcomposer.org)
 
@@ -75,10 +75,20 @@ public function listBooks(FractalService $fractal) {
 
 Please read the [guidelines](.github/CONTRIBUTING.md).
 
-## Test
+## Running tests
 
- Unit tests coming soon! As soon as we have the time to write them.
+Clone the project and install its dependencies by running:
+
+```sh
+composer install
+```
+
+Run the following command to run the test suite:
+
+```sh
+vendor/bin/codecept run unit
+```
 
 ## License
 
-See [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
