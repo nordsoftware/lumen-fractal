@@ -69,20 +69,17 @@ class FractalTest extends \Codeception\TestCase\Test
 
         $books = array();
 
-        for($i = 0; $i < 5; $i++){
-            $author = new Author('Test ' . $i, 'Author' . $i);
-            $book   = new Book('Test Book ' . $i, 'Test Publisher ' .$i, $author);
+        for ($i = 0; $i < 5; $i++) {
+            $author  = new Author('Test ' . $i, 'Author' . $i);
+            $book    = new Book('Test Book ' . $i, 'Test Publisher ' . $i, $author);
             $books[] = $book;
         }
 
         $collection = $this->service->collection($books, new BookTransformer())->toArray();
 
-        $this->specify('Array does not contain specified amount of items', function() use ($collection) {
+        $this->specify('Array does not contain specified amount of items', function () use ($collection) {
             verify(count($collection['data']))->equals(5);
         });
-
-
-
     }
 
     /**
