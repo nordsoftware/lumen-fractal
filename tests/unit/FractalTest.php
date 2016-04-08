@@ -48,15 +48,15 @@ class FractalTest extends \Codeception\TestCase\Test
         $author = new Author('Test', 'Author');
         $book   = new Book('Test Book', 'Test Publisher', $author);
 
-        $data = $this->service->item($book, new BookTransformer())->toArray();
+        $item = $this->service->item($book, new BookTransformer())->toArray();
 
-        $this->specify('key "data" is required', function () use ($data) {
-            verify($data)->hasKey('data');
+        $this->specify('The key "data" is required.', function () use ($item) {
+            verify($item)->hasKey('data');
         });
 
-        $bookData = $data['data'];
+        $bookData = $item['data'];
 
-        $this->specify('book title equals "Test Book"', function () use ($bookData) {
+        $this->specify('The book title must equal "Test Book".', function () use ($bookData) {
             verify($bookData['title'])->equals('Test Book');
         });
     }
@@ -83,5 +83,28 @@ class FractalTest extends \Codeception\TestCase\Test
 
 
 
+    }
+
+    /**
+     * Tests the Author include.
+     */
+    public function testAuthorInclude()
+    {
+        $author = new Author('Test', 'Author');
+        $book   = new Book('Test Book', 'Test Publisher', $author);
+
+        $item = $this->service->item($book, new BookTransformer())->toArray();
+
+        $this->specify('The key "data" is required.', function () use ($item) {
+            verify($item)->hasKey('data');
+        });
+
+        $bookData = $item['data'];
+
+        $this->specify('Author last name must be "Author".', function () use ($bookData) {
+            verify($bookData['author'])->hasKey('data');
+            verify($bookData['author']['data'])->hasKey('lastName');
+            verify($bookData['author']['data']['lastName'])->equals('Author');
+        });
     }
 }
