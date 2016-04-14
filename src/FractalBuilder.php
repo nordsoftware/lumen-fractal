@@ -257,10 +257,6 @@ class FractalBuilder implements FractalBuilderContract
      */
     private function setData($data)
     {
-        if (empty($data)) {
-            throw new InvalidArgument('Data must not be empty.');
-        }
-
         $this->data = $data;
     }
 }
