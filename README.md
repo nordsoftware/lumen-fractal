@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
-[![License](https://poser.pugx.org/nordsoftware/lumen-fractal/license)](https://packagist.org/packages/nordsoftware/lumen-fractal)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 [Fractal](http://fractal.thephpleague.com/) module for the [Lumen PHP framework](http://lumen.laravel.com/).
 
