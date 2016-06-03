@@ -86,5 +86,4 @@ class Book
     {
         $this->publisher = $publisher;
     }
-
 }

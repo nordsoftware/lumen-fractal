@@ -11,7 +11,6 @@ use League\Fractal\TransformerAbstract;
 
 interface FractalBuilder
 {
-
     const RESOURCE_COLLECTION = Collection::class;
     const RESOURCE_ITEM       = Item::class;
 

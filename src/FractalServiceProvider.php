@@ -10,7 +10,6 @@ use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalServiceProvider extends ServiceProvider
 {
-
     const CONFIG_KEY = 'fractal';
 
     /**
@@ -40,8 +39,6 @@ class FractalServiceProvider extends ServiceProvider
         });
 
         $container->alias(FractalService::class, FractalServiceContract::class);
-
-
     }
 
 
