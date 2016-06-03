@@ -10,7 +10,6 @@ use Nord\Lumen\Tests\Files\Author;
  */
 class FractalTest extends \Codeception\TestCase\Test
 {
-
     use \Codeception\Specify;
 
     /**
