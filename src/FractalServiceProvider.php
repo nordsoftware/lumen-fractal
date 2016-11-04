@@ -39,7 +39,6 @@ class FractalServiceProvider extends ServiceProvider
         $container->alias(FractalService::class, FractalServiceContract::class);
     }
 
-
     protected function registerFacades()
     {
         if (!class_exists('Fractal')) {
