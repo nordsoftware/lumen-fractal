@@ -6,9 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 class FractalFacade extends Facade
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected static function getFacadeAccessor()
     {

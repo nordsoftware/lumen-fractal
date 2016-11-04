@@ -1,16 +1,15 @@
 <?php
 
 use Nord\Lumen\Fractal\FractalService;
+use Nord\Lumen\Tests\Files\Author;
 use Nord\Lumen\Tests\Files\Book;
 use Nord\Lumen\Tests\Files\BookTransformer;
-use Nord\Lumen\Tests\Files\Author;
 
 /**
  * Class FractalTest.
  */
 class FractalTest extends \Codeception\TestCase\Test
 {
-
     use \Codeception\Specify;
 
     /**
@@ -39,13 +38,13 @@ class FractalTest extends \Codeception\TestCase\Test
     private $transformer;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function _after()
     {
-        $this->service     = null;
-        $this->book        = null;
-        $this->author      = null;
+        $this->service = null;
+        $this->book = null;
+        $this->author = null;
         $this->transformer = null;
     }
 
@@ -54,9 +53,9 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testItem()
     {
-        $this->service     = new FractalService();
-        $this->author      = new Author('Test', 'Author');
-        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->service = new FractalService();
+        $this->author = new Author('Test', 'Author');
+        $this->book = new Book('Test Book', 'Test Publisher', $this->author);
         $this->transformer = new BookTransformer();
 
         $this->specify('The key "data" is required.', function () {
@@ -75,15 +74,15 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testCollection()
     {
-        $this->service     = new FractalService();
-        $this->author      = new Author('Test', 'Author');
-        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->service = new FractalService();
+        $this->author = new Author('Test', 'Author');
+        $this->book = new Book('Test Book', 'Test Publisher', $this->author);
         $this->transformer = new BookTransformer();
 
         $books = [];
         for ($i = 0; $i < 5; $i++) {
-            $author  = new Author('Test ' . $i, 'Author' . $i);
-            $book    = new Book('Test Book ' . $i, 'Test Publisher ' . $i, $author);
+            $author = new Author('Test '.$i, 'Author'.$i);
+            $book = new Book('Test Book '.$i, 'Test Publisher '.$i, $author);
             $books[] = $book;
         }
 
@@ -98,9 +97,9 @@ class FractalTest extends \Codeception\TestCase\Test
      */
     public function testAuthorInclude()
     {
-        $this->service     = new FractalService();
-        $this->author      = new Author('Test', 'Author');
-        $this->book        = new Book('Test Book', 'Test Publisher', $this->author);
+        $this->service = new FractalService();
+        $this->author = new Author('Test', 'Author');
+        $this->book = new Book('Test Book', 'Test Publisher', $this->author);
         $this->transformer = new BookTransformer();
 
         $this->specify('The key "data" is required.', function () {

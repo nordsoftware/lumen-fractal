@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 class FractalMiddleware
 {
-
     /**
      * @var FractalService
      */
     private $service;
-
 
     /**
      * FractalMiddleware constructor.
@@ -23,7 +21,6 @@ class FractalMiddleware
     {
         $this->service = $service;
     }
-
 
     /**
      * Run the request filter.

@@ -8,7 +8,6 @@ use Nord\Lumen\Fractal\FractalBuilder;
 
 interface FractalService
 {
-
     /**
      * Serializes a single item.
      *
@@ -19,7 +18,6 @@ interface FractalService
      * @return FractalBuilder
      */
     public function item($data, TransformerAbstract $transformer = null, $resourceKey = null);
-
 
     /**
      * Serializes a collection of items.
@@ -32,7 +30,6 @@ interface FractalService
      */
     public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null);
 
-
     /**
      * Parses includes from either a string (GET query parameter) or an array
      * and stores them so that they are available at the time of serialization.
@@ -42,7 +39,6 @@ interface FractalService
      * @see http://fractal.thephpleague.com/transformers#including-data
      */
     public function parseIncludes($includes);
-
 
     /**
      * Sets the default serializer to use for serializing data.
