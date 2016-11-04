@@ -6,14 +6,11 @@ use League\Fractal\TransformerAbstract;
 
 /**
  * Class BookTransformer.
- *
- * @package Nord\Lumen\Tests\Files
  */
 class BookTransformer extends TransformerAbstract
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $defaultIncludes = [
         'author',

@@ -4,24 +4,21 @@ namespace Nord\Lumen\Tests\Files;
 
 /**
  * Class Book.
- *
- * @package Nord\Lumen\Tests\Files
  */
 class Book
 {
-
     /**
-     * @var Author $author
+     * @var Author
      */
     private $author;
 
     /**
-     * @var string $title
+     * @var string
      */
     private $title;
 
     /**
-     * @var string $publisher
+     * @var string
      */
     private $publisher;
 
@@ -34,9 +31,9 @@ class Book
      */
     public function __construct($title, $publisher, Author $author)
     {
-        $this->title     = $title;
+        $this->title = $title;
         $this->publisher = $publisher;
-        $this->author    = $author;
+        $this->author = $author;
     }
 
     /**
@@ -86,5 +83,4 @@ class Book
     {
         $this->publisher = $publisher;
     }
-
 }

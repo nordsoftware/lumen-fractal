@@ -2,22 +2,21 @@
 
 namespace Nord\Lumen\Fractal;
 
-use League\Fractal\Pagination\CursorInterface;
-use League\Fractal\Resource\Item;
-use League\Fractal\Resource\ResourceAbstract;
-use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
 use League\Fractal\Manager;
+use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
+use League\Fractal\Resource\ResourceAbstract;
 use League\Fractal\Scope;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
+use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
 use Nord\Lumen\Fractal\Exceptions\InvalidArgument;
 use Nord\Lumen\Fractal\Exceptions\NotApplicable;
 
 class FractalBuilder implements FractalBuilderContract
 {
-
     /**
      * @var Manager
      */
@@ -71,7 +70,6 @@ class FractalBuilder implements FractalBuilderContract
         self::RESOURCE_ITEM,
     ];
 
-
     /**
      * FractalBuilder constructor.
      *
@@ -86,9 +84,8 @@ class FractalBuilder implements FractalBuilderContract
         $this->setData($data);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setMeta(array $meta)
     {
@@ -97,9 +94,8 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setTransformer(TransformerAbstract $transformer)
     {
@@ -108,9 +104,8 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setResourceKey($resourceKey)
     {
@@ -123,9 +118,8 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setPaginator(PaginatorInterface $paginator)
     {
@@ -138,9 +132,8 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setCursor(CursorInterface $cursor)
     {
@@ -153,9 +146,8 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setSerializer(SerializerAbstract $serializer)
     {
@@ -164,24 +156,21 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function toArray()
     {
         return $this->makeScope()->toArray();
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function toJson()
     {
         return $this->makeScope()->toJson();
     }
-
 
     /**
      * Creates the resource for this builder.
@@ -204,7 +193,6 @@ class FractalBuilder implements FractalBuilderContract
         return $resource;
     }
 
-
     /**
      * Creates the scope for this builder.
      *
@@ -221,7 +209,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this->fractal->createData($resource);
     }
 
-
     /**
      * @param Manager $fractal
      */
@@ -233,7 +220,6 @@ class FractalBuilder implements FractalBuilderContract
 
         $this->fractal = $fractal;
     }
-
 
     /**
      * @param string $resourceClass
@@ -250,7 +236,6 @@ class FractalBuilder implements FractalBuilderContract
 
         $this->resourceClass = $resourceClass;
     }
-
 
     /**
      * @param mixed $data

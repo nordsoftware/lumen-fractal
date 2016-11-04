@@ -2,17 +2,16 @@
 
 namespace Nord\Lumen\Fractal;
 
-use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
-use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 use League\Fractal\Manager;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
+use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
+use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 // TODO: Add support for meta data?
 
 class FractalService implements FractalServiceContract
 {
-
     /**
      * @var array
      */
@@ -23,27 +22,24 @@ class FractalService implements FractalServiceContract
      */
     private $defaultSerializer;
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function item($data, TransformerAbstract $transformer = null, $resourceKey = null)
     {
         return $this->makeBuilder(FractalBuilderContract::RESOURCE_ITEM, $data, $transformer, $resourceKey);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null)
     {
         return $this->makeBuilder(FractalBuilderContract::RESOURCE_COLLECTION, $data, $transformer, $resourceKey);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function parseIncludes($includes)
     {
@@ -54,15 +50,13 @@ class FractalService implements FractalServiceContract
         $this->includes = array_merge($this->includes, (array) $includes);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setDefaultSerializer(SerializerAbstract $serializer)
     {
         $this->defaultSerializer = $serializer;
     }
-
 
     /**
      * Creates a builder for serializing data.
@@ -93,7 +87,6 @@ class FractalService implements FractalServiceContract
 
         return $builder;
     }
-
 
     /**
      * @return Manager

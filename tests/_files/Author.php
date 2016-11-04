@@ -1,21 +1,19 @@
 <?php
+
 namespace Nord\Lumen\Tests\Files;
 
 /**
  * Class Author.
- *
- * @package Nord\Lumen\Tests\Files
  */
 class Author
 {
-
     /**
-     * @var string $firstName
+     * @var string
      */
     private $firstName;
 
     /**
-     * @var string $lastName
+     * @var string
      */
     private $lastName;
 
@@ -28,7 +26,7 @@ class Author
     public function __construct($firstName, $lastName)
     {
         $this->firstName = $firstName;
-        $this->lastName  = $lastName;
+        $this->lastName = $lastName;
     }
 
     /**
