@@ -8,8 +8,6 @@ use League\Fractal\Manager;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
 
-// TODO: Add support for meta data?
-
 class FractalService implements FractalServiceContract
 {
 
