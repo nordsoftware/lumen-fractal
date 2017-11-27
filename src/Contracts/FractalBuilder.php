@@ -4,17 +4,12 @@ namespace Nord\Lumen\Fractal\Contracts;
 
 use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
-use League\Fractal\Resource\Collection;
-use League\Fractal\Resource\Item;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
 
 interface FractalBuilder
 {
-    const RESOURCE_COLLECTION = Collection::class;
-    const RESOURCE_ITEM       = Item::class;
-
-
+    
     /**
      * Sets the meta data to add to the serialized data.
      *

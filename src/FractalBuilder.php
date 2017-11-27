@@ -65,8 +65,8 @@ class FractalBuilder implements FractalBuilderContract
      * @var array
      */
     private static $validResourceClasses = [
-        self::RESOURCE_COLLECTION,
-        self::RESOURCE_ITEM,
+        Collection::class,
+        Item::class,
     ];
 
 
@@ -123,7 +123,7 @@ class FractalBuilder implements FractalBuilderContract
      */
     public function setPaginator(PaginatorInterface $paginator)
     {
-        if ($this->resourceClass !== self::RESOURCE_COLLECTION) {
+        if ($this->resourceClass !== Collection::class) {
             throw new \InvalidArgumentException('Paginators can only be used with collections.');
         }
 
@@ -138,7 +138,7 @@ class FractalBuilder implements FractalBuilderContract
      */
     public function setCursor(CursorInterface $cursor)
     {
-        if ($this->resourceClass !== self::RESOURCE_COLLECTION) {
+        if ($this->resourceClass !== Collection::class) {
             throw new \InvalidArgumentException('Cursors can only be used with collections.');
         }
 

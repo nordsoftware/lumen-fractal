@@ -2,7 +2,8 @@
 
 namespace Nord\Lumen\Fractal;
 
-use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
+use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
 use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 use League\Fractal\Manager;
 use League\Fractal\Serializer\SerializerAbstract;
@@ -27,7 +28,7 @@ class FractalService implements FractalServiceContract
      */
     public function item($data, TransformerAbstract $transformer = null, $resourceKey = null)
     {
-        return $this->makeBuilder(FractalBuilderContract::RESOURCE_ITEM, $data, $transformer, $resourceKey);
+        return $this->makeBuilder(Item::class, $data, $transformer, $resourceKey);
     }
 
 
@@ -36,7 +37,7 @@ class FractalService implements FractalServiceContract
      */
     public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null)
     {
-        return $this->makeBuilder(FractalBuilderContract::RESOURCE_COLLECTION, $data, $transformer, $resourceKey);
+        return $this->makeBuilder(Collection::class, $data, $transformer, $resourceKey);
     }
 
 
@@ -65,7 +66,7 @@ class FractalService implements FractalServiceContract
     /**
      * Creates a builder for serializing data.
      *
-     * @param array                    $resourceClass
+     * @param string                    $resourceClass
      * @param mixed                    $data
      * @param TransformerAbstract|null $transformer
      * @param string|null              $resourceKey
