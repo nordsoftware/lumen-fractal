@@ -210,7 +210,7 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $this->service->item($this->book, $this->transformer)
                 ->setPaginator(new BookPaginator([]))
                 ->toArray();
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\NotApplicable']);
+        }, ['throws' => \InvalidArgumentException::class]);
     }
 
     /**
@@ -229,6 +229,6 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $this->service->item($this->book, $this->transformer)
                 ->setCursor(new Cursor())
                 ->toArray();
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\NotApplicable']);
+        }, ['throws' => \InvalidArgumentException::class]);
     }
 }

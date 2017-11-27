@@ -55,6 +55,8 @@ interface FractalBuilder
      * Only applicable for collections.
      *
      * @param PaginatorInterface $paginator
+     * 
+     * @throws \InvalidArgumentException
      *
      * @return FractalBuilder
      *
@@ -68,6 +70,8 @@ interface FractalBuilder
      * Only applicable for collections.
      *
      * @param CursorInterface $cursor
+     * 
+     * @throws \InvalidArgumentException
      *
      * @return mixed
      *

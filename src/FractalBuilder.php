@@ -12,7 +12,6 @@ use League\Fractal\Scope;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
 use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
-use Nord\Lumen\Fractal\Exceptions\NotApplicable;
 
 class FractalBuilder implements FractalBuilderContract
 {
@@ -125,7 +124,7 @@ class FractalBuilder implements FractalBuilderContract
     public function setPaginator(PaginatorInterface $paginator)
     {
         if ($this->resourceClass !== self::RESOURCE_COLLECTION) {
-            throw new NotApplicable('Paginators can only be used with collections.');
+            throw new \InvalidArgumentException('Paginators can only be used with collections.');
         }
 
         $this->paginator = $paginator;
@@ -140,7 +139,7 @@ class FractalBuilder implements FractalBuilderContract
     public function setCursor(CursorInterface $cursor)
     {
         if ($this->resourceClass !== self::RESOURCE_COLLECTION) {
-            throw new NotApplicable('Cursors can only be used with collections.');
+            throw new \InvalidArgumentException('Cursors can only be used with collections.');
         }
 
         $this->cursor = $cursor;
