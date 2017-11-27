@@ -4,7 +4,6 @@ namespace Nord\Lumen\Fractal\Contracts;
 
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
-use Nord\Lumen\Fractal\FractalBuilder;
 
 interface FractalService
 {
@@ -16,7 +15,7 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
     public function item($data, TransformerAbstract $transformer = null, $resourceKey = null);
 
@@ -28,7 +27,7 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
     public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null);
 
