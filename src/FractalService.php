@@ -26,7 +26,7 @@ class FractalService implements FractalServiceContract
     /**
      * @inheritdoc
      */
-    public function item($data, $transformer = null, $resourceKey = null)
+    public function item($data, $transformer = null, ?string $resourceKey = null)
     {
         return $this->makeBuilder(Item::class, $data, $transformer, $resourceKey);
     }
@@ -35,7 +35,7 @@ class FractalService implements FractalServiceContract
     /**
      * @inheritdoc
      */
-    public function collection($data, $transformer = null, $resourceKey = null)
+    public function collection($data, $transformer = null, ?string $resourceKey = null)
     {
         return $this->makeBuilder(Collection::class, $data, $transformer, $resourceKey);
     }
@@ -50,7 +50,7 @@ class FractalService implements FractalServiceContract
             $includes = explode(',', $includes);
         }
 
-        $this->includes = array_merge($this->includes, (array) $includes);
+        $this->includes = array_merge($this->includes, $includes);
         
         return $this;
     }
@@ -77,12 +77,8 @@ class FractalService implements FractalServiceContract
      *
      * @return FractalBuilder
      */
-    protected function makeBuilder(
-        $resourceClass,
-        $data,
-        $transformer = null,
-        $resourceKey = null
-    ) {
+    protected function makeBuilder(string $resourceClass, $data, $transformer = null, string $resourceKey = null): FractalBuilder
+    {
         $fractal = $this->makeFractal();
         $builder = new FractalBuilder($fractal, $resourceClass, $data);
 
@@ -101,7 +97,7 @@ class FractalService implements FractalServiceContract
     /**
      * @return Manager
      */
-    protected function makeFractal()
+    protected function makeFractal(): Manager
     {
         $fractal = new Manager();
 

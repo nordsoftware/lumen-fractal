@@ -92,7 +92,7 @@ interface FractalBuilder
      *
      * @return array
      */
-    public function toArray();
+    public function toArray(): array;
 
 
     /**
@@ -100,5 +100,5 @@ interface FractalBuilder
      *
      * @return string
      */
-    public function toJson();
+    public function toJson(): string;
 }
