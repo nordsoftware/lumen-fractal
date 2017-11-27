@@ -105,13 +105,11 @@ class FractalService implements FractalServiceContract
     {
         $fractal = new Manager();
 
-        if (isset($this->defaultSerializer)) {
+        if ($this->defaultSerializer) {
             $fractal->setSerializer($this->defaultSerializer);
         }
 
-        if (isset($this->includes)) {
-            $fractal->parseIncludes($this->includes);
-        }
+        $fractal->parseIncludes($this->includes);
 
         return $fractal;
     }
