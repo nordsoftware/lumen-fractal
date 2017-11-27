@@ -190,11 +190,6 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $item = $this->service->item($this->book, $this->transformer, 'book')->toArray();
             verify($item)->hasKey('data');
         });
-
-        $this->specify('The fractal builder resource key has to be valid.', function () {
-            $item = $this->service->item($this->book, $this->transformer);
-            $item->setResourceKey(123);
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\InvalidArgument']);
     }
 
     /**

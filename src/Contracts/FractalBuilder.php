@@ -47,7 +47,7 @@ interface FractalBuilder
      *
      * @see http://fractal.thephpleague.com/transformers/
      */
-    public function setResourceKey($resourceKey);
+    public function setResourceKey(string $resourceKey);
 
 
     /**

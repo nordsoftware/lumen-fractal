@@ -2,17 +2,16 @@
 
 namespace Nord\Lumen\Fractal;
 
-use League\Fractal\Pagination\CursorInterface;
-use League\Fractal\Resource\Item;
-use League\Fractal\Resource\ResourceAbstract;
-use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
 use League\Fractal\Manager;
+use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
+use League\Fractal\Resource\ResourceAbstract;
 use League\Fractal\Scope;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
-use Nord\Lumen\Fractal\Exceptions\InvalidArgument;
+use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
 use Nord\Lumen\Fractal\Exceptions\NotApplicable;
 
 class FractalBuilder implements FractalBuilderContract
@@ -112,12 +111,8 @@ class FractalBuilder implements FractalBuilderContract
     /**
      * @inheritdoc
      */
-    public function setResourceKey($resourceKey)
+    public function setResourceKey(string $resourceKey)
     {
-        if (!is_string($resourceKey) || strlen($resourceKey) === 0) {
-            throw new InvalidArgument('Resource key must be a non-empty string.');
-        }
-
         $this->resourceKey = $resourceKey;
 
         return $this;
@@ -233,15 +228,13 @@ class FractalBuilder implements FractalBuilderContract
 
     /**
      * @param string $resourceClass
+     *
+     * @throws \InvalidArgumentException
      */
-    private function setResourceClass($resourceClass)
+    private function setResourceClass(string $resourceClass)
     {
-        if (!is_string($resourceClass) || strlen($resourceClass) === 0) {
-            throw new InvalidArgument('Resource class must be a non-empty string.');
-        }
-
         if (!in_array($resourceClass, self::$validResourceClasses)) {
-            throw new InvalidArgument('Resource class is invalid.');
+            throw new \InvalidArgumentException('Resource class is invalid.');
         }
 
         $this->resourceClass = $resourceClass;
