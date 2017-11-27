@@ -4,7 +4,6 @@ namespace Nord\Lumen\Fractal\Contracts;
 
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
-use Nord\Lumen\Fractal\FractalBuilder;
 
 interface FractalService
 {
