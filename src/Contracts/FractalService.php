@@ -19,7 +19,6 @@ interface FractalService
      */
     public function item($data, $transformer = null, ?string $resourceKey = null);
 
-
     /**
      * Serializes a collection of items.
      *
@@ -31,25 +30,23 @@ interface FractalService
      */
     public function collection($data, $transformer = null, ?string $resourceKey = null);
 
-
     /**
      * Parses includes from either a string (GET query parameter) or an array
      * and stores them so that they are available at the time of serialization.
      *
      * @param string|array $includes
-     * 
+     *
      * @return $this
      *
      * @see http://fractal.thephpleague.com/transformers#including-data
      */
     public function parseIncludes($includes);
 
-
     /**
      * Sets the default serializer to use for serializing data.
      *
      * @param SerializerAbstract $serializer
-     * 
+     *
      * @return $this
      *
      * @see http://fractal.thephpleague.com/serializers/
