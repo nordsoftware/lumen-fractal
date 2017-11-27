@@ -79,9 +79,10 @@ class FractalBuilder implements FractalBuilderContract
      */
     public function __construct(Manager $fractal, $resourceClass, $data)
     {
-        $this->setFractal($fractal);
+        $this->fractal = $fractal;
+        $this->data = $data;
+
         $this->setResourceClass($resourceClass);
-        $this->setData($data);
     }
 
 
@@ -214,20 +215,12 @@ class FractalBuilder implements FractalBuilderContract
 
         return $this->fractal->createData($resource);
     }
-
-
-    /**
-     * @param Manager $fractal
-     */
-    private function setFractal(Manager $fractal)
-    {
-        $this->fractal = $fractal;
-    }
-
-
+    
     /**
      * @param string $resourceClass
      *
+     * @return $this
+     * 
      * @throws \InvalidArgumentException
      */
     private function setResourceClass(string $resourceClass)
@@ -237,14 +230,7 @@ class FractalBuilder implements FractalBuilderContract
         }
 
         $this->resourceClass = $resourceClass;
-    }
-
-
-    /**
-     * @param mixed $data
-     */
-    private function setData($data)
-    {
-        $this->data = $data;
+        
+        return $this;
     }
 }
