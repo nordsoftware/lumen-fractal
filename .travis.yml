@@ -8,8 +8,6 @@ php:
   - 7.2
 
 before_script:
-  - mkdir -p /home/travis/.phpenv/versions/$(phpenv version-name)/etc/conf.d
-  - composer self-update
   - composer install --prefer-source
 
 script: vendor/bin/codecept run unit --coverage --report --coverage-xml
