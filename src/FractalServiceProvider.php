@@ -5,7 +5,6 @@ namespace Nord\Lumen\Fractal;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Lumen\Application;
 use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalServiceProvider extends ServiceProvider
