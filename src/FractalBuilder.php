@@ -227,10 +227,6 @@ class FractalBuilder implements FractalBuilderContract
      */
     private function setFractal(Manager $fractal)
     {
-        if ($fractal === null) {
-            throw new InvalidArgument('Fractal must be an instance of League\Fractal\Manager.');
-        }
-
         $this->fractal = $fractal;
     }
 
