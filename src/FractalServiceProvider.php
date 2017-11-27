@@ -9,6 +9,7 @@ use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalServiceProvider extends ServiceProvider
 {
+
     const CONFIG_KEY = 'fractal';
 
     /**
@@ -19,9 +20,7 @@ class FractalServiceProvider extends ServiceProvider
         $this->app->configure(self::CONFIG_KEY);
 
         $this->registerBindings($this->app, $this->app['config']);
-        $this->registerFacades();
     }
-
 
     /**
      * @param Container        $container
@@ -39,18 +38,6 @@ class FractalServiceProvider extends ServiceProvider
 
         $container->alias(FractalService::class, FractalServiceContract::class);
     }
-
-
-    /**
-     *
-     */
-    protected function registerFacades()
-    {
-        if (!class_exists('Fractal')) {
-            class_alias(FractalFacade::class, 'Fractal');
-        }
-    }
-
 
     /**
      * @param FractalService $service
