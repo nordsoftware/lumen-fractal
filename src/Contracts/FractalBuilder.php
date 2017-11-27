@@ -9,7 +9,7 @@ use League\Fractal\TransformerAbstract;
 
 interface FractalBuilder
 {
-    
+
     /**
      * Sets the meta data to add to the serialized data.
      *
@@ -32,7 +32,6 @@ interface FractalBuilder
      */
     public function setTransformer($transformer);
 
-
     /**
      * Sets the resource key to use for serializing data.
      *
@@ -44,13 +43,12 @@ interface FractalBuilder
      */
     public function setResourceKey(string $resourceKey);
 
-
     /**
      * Sets the paginator to use for serializing data.
      * Only applicable for collections.
      *
      * @param PaginatorInterface $paginator
-     * 
+     *
      * @throws \InvalidArgumentException
      *
      * @return $this
@@ -59,13 +57,12 @@ interface FractalBuilder
      */
     public function setPaginator(PaginatorInterface $paginator);
 
-
     /**
      * Sets the cursor to use for serializing data.
      * Only applicable for collections.
      *
      * @param CursorInterface $cursor
-     * 
+     *
      * @throws \InvalidArgumentException
      *
      * @return $this
@@ -73,7 +70,6 @@ interface FractalBuilder
      * @see http://fractal.thephpleague.com/pagination#using-cursors
      */
     public function setCursor(CursorInterface $cursor);
-
 
     /**
      * Sets the serializer to use for serializing data.
@@ -86,14 +82,12 @@ interface FractalBuilder
      */
     public function setSerializer(SerializerAbstract $serializer);
 
-
     /**
      * Returns the data as an array, serializing it first if necessary.
      *
      * @return array
      */
     public function toArray(): array;
-
 
     /**
      * Returns the data as a JSON string, serializing it first if necessary.

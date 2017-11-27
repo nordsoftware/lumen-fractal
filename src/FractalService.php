@@ -22,7 +22,6 @@ class FractalService implements FractalServiceContract
      */
     private $defaultSerializer;
 
-
     /**
      * @inheritdoc
      */
@@ -31,7 +30,6 @@ class FractalService implements FractalServiceContract
         return $this->makeBuilder(Item::class, $data, $transformer, $resourceKey);
     }
 
-
     /**
      * @inheritdoc
      */
@@ -39,7 +37,6 @@ class FractalService implements FractalServiceContract
     {
         return $this->makeBuilder(Collection::class, $data, $transformer, $resourceKey);
     }
-
 
     /**
      * @inheritdoc
@@ -51,10 +48,9 @@ class FractalService implements FractalServiceContract
         }
 
         $this->includes = array_merge($this->includes, $includes);
-        
+
         return $this;
     }
-
 
     /**
      * @inheritdoc
@@ -62,23 +58,26 @@ class FractalService implements FractalServiceContract
     public function setDefaultSerializer(SerializerAbstract $serializer)
     {
         $this->defaultSerializer = $serializer;
-        
+
         return $this;
     }
-
 
     /**
      * Creates a builder for serializing data.
      *
-     * @param string                            $resourceClass
-     * @param mixed                             $data
+     * @param string $resourceClass
+     * @param mixed $data
      * @param TransformerAbstract|callable|null $transformer
-     * @param string|null                       $resourceKey
+     * @param string|null $resourceKey
      *
      * @return FractalBuilder
      */
-    protected function makeBuilder(string $resourceClass, $data, $transformer = null, string $resourceKey = null): FractalBuilder
-    {
+    protected function makeBuilder(
+        string $resourceClass,
+        $data,
+        $transformer = null,
+        string $resourceKey = null
+    ): FractalBuilder {
         $fractal = $this->makeFractal();
         $builder = new FractalBuilder($fractal, $resourceClass, $data);
 
@@ -92,7 +91,6 @@ class FractalService implements FractalServiceContract
 
         return $builder;
     }
-
 
     /**
      * @return Manager

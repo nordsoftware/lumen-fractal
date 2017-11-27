@@ -69,7 +69,6 @@ class FractalBuilder implements FractalBuilderContract
         Item::class,
     ];
 
-
     /**
      * FractalBuilder constructor.
      *
@@ -80,11 +79,10 @@ class FractalBuilder implements FractalBuilderContract
     public function __construct(Manager $fractal, string $resourceClass, $data)
     {
         $this->fractal = $fractal;
-        $this->data = $data;
+        $this->data    = $data;
 
         $this->setResourceClass($resourceClass);
     }
-
 
     /**
      * @inheritdoc
@@ -96,7 +94,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -107,7 +104,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -117,7 +113,6 @@ class FractalBuilder implements FractalBuilderContract
 
         return $this;
     }
-
 
     /**
      * @inheritdoc
@@ -133,7 +128,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -148,7 +142,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -159,7 +152,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
@@ -168,7 +160,6 @@ class FractalBuilder implements FractalBuilderContract
         return $this->makeScope()->toArray();
     }
 
-
     /**
      * @inheritdoc
      */
@@ -176,7 +167,6 @@ class FractalBuilder implements FractalBuilderContract
     {
         return $this->makeScope()->toJson();
     }
-
 
     /**
      * Creates the resource for this builder.
@@ -199,7 +189,6 @@ class FractalBuilder implements FractalBuilderContract
         return $resource;
     }
 
-
     /**
      * Creates the scope for this builder.
      *
@@ -215,12 +204,12 @@ class FractalBuilder implements FractalBuilderContract
 
         return $this->fractal->createData($resource);
     }
-    
+
     /**
      * @param string $resourceClass
      *
      * @return $this
-     * 
+     *
      * @throws \InvalidArgumentException
      */
     private function setResourceClass(string $resourceClass)
@@ -230,7 +219,7 @@ class FractalBuilder implements FractalBuilderContract
         }
 
         $this->resourceClass = $resourceClass;
-        
+
         return $this;
     }
 }
