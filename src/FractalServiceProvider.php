@@ -9,7 +9,6 @@ use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalServiceProvider extends ServiceProvider
 {
-
     private const CONFIG_KEY = 'fractal';
 
     /**

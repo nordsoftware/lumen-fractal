@@ -7,7 +7,6 @@ use Nord\Lumen\Fractal\FractalServiceProvider;
 
 class FractalServiceProviderTest extends \Codeception\Test\Unit
 {
-
     use \Codeception\Specify;
 
     /**
