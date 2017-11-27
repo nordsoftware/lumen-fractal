@@ -30,11 +30,11 @@
     }
   ],
   "require": {
-    "php": ">=5.6",
-    "league/fractal": "^0.13"
+    "php": ">=7.1",
+    "league/fractal": "^0.17"
   },
   "require-dev": {
-    "laravel/lumen-framework": "^5.3",
+    "laravel/lumen-framework": "^5.4",
     "codeception/codeception": "^2.2",
     "codeception/specify": "^0.4",
     "codeception/verify": "^0.3",
