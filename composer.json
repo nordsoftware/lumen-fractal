@@ -23,6 +23,10 @@
     {
       "name": "Jonas Engström",
       "email": "jonas.engstrom@nordsoftware.com"
+    },
+    {
+      "name": "Sam Stenvall",
+      "email": "sam.stenvall@digia.com"
     }
   ],
   "require": {
