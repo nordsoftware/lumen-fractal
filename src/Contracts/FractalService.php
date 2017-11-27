@@ -38,6 +38,8 @@ interface FractalService
      * and stores them so that they are available at the time of serialization.
      *
      * @param string|array $includes
+     * 
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/transformers#including-data
      */
@@ -48,6 +50,8 @@ interface FractalService
      * Sets the default serializer to use for serializing data.
      *
      * @param SerializerAbstract $serializer
+     * 
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/serializers/
      */

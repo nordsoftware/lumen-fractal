@@ -51,6 +51,8 @@ class FractalService implements FractalServiceContract
         }
 
         $this->includes = array_merge($this->includes, (array) $includes);
+        
+        return $this;
     }
 
 
@@ -60,6 +62,8 @@ class FractalService implements FractalServiceContract
     public function setDefaultSerializer(SerializerAbstract $serializer)
     {
         $this->defaultSerializer = $serializer;
+        
+        return $this;
     }
 
 
