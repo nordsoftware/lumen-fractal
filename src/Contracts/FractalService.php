@@ -17,7 +17,7 @@ interface FractalService
      *
      * @return $this
      */
-    public function item($data, TransformerAbstract $transformer = null, $resourceKey = null);
+    public function item($data, $transformer = null, $resourceKey = null);
 
 
     /**
@@ -29,7 +29,7 @@ interface FractalService
      *
      * @return $this
      */
-    public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null);
+    public function collection($data, $transformer = null, $resourceKey = null);
 
 
     /**

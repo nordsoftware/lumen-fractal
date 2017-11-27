@@ -24,13 +24,13 @@ interface FractalBuilder
     /**
      * Sets the transformer to use for serializing data.
      *
-     * @param TransformerAbstract $transformer
+     * @param TransformerAbstract|callable $transformer
      *
      * @return $this
      *
      * @see http://fractal.thephpleague.com/transformers/
      */
-    public function setTransformer(TransformerAbstract $transformer);
+    public function setTransformer($transformer);
 
 
     /**
