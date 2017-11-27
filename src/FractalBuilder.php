@@ -37,7 +37,7 @@ class FractalBuilder implements FractalBuilderContract
     private $meta = [];
 
     /**
-     * @var string
+     * @var ?string
      */
     private $resourceKey;
 
@@ -77,7 +77,7 @@ class FractalBuilder implements FractalBuilderContract
      * @param string  $resourceClass
      * @param mixed   $data
      */
-    public function __construct(Manager $fractal, $resourceClass, $data)
+    public function __construct(Manager $fractal, string $resourceClass, $data)
     {
         $this->fractal = $fractal;
         $this->data = $data;
@@ -163,7 +163,7 @@ class FractalBuilder implements FractalBuilderContract
     /**
      * @inheritdoc
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->makeScope()->toArray();
     }
@@ -172,7 +172,7 @@ class FractalBuilder implements FractalBuilderContract
     /**
      * @inheritdoc
      */
-    public function toJson()
+    public function toJson(): string
     {
         return $this->makeScope()->toJson();
     }
@@ -183,7 +183,7 @@ class FractalBuilder implements FractalBuilderContract
      *
      * @return ResourceAbstract
      */
-    protected function makeResource()
+    protected function makeResource(): ResourceAbstract
     {
         /** @var Item|Collection $resource */
         $resource = new $this->resourceClass($this->data, $this->transformer, $this->resourceKey);
@@ -205,7 +205,7 @@ class FractalBuilder implements FractalBuilderContract
      *
      * @return Scope
      */
-    protected function makeScope()
+    protected function makeScope(): Scope
     {
         $resource = $this->makeResource();
 
