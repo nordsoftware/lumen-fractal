@@ -192,7 +192,7 @@ class FractalBuilder implements FractalBuilderContract
             $resource->setMeta($this->meta);
         }
 
-        if ($resource instanceof Collection && isset($this->paginator)) {
+        if ($resource instanceof Collection && $this->paginator !== null) {
             $resource->setPaginator($this->paginator);
         }
 
@@ -209,7 +209,7 @@ class FractalBuilder implements FractalBuilderContract
     {
         $resource = $this->makeResource();
 
-        if (isset($this->serializer)) {
+        if ($this->serializer) {
             $this->fractal->setSerializer($this->serializer);
         }
 
