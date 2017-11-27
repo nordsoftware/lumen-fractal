@@ -2,12 +2,12 @@
 
 namespace Nord\Lumen\Fractal;
 
+use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
-use League\Fractal\Manager;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
+use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalService implements FractalServiceContract
 {
@@ -26,7 +26,7 @@ class FractalService implements FractalServiceContract
     /**
      * @inheritdoc
      */
-    public function item($data, TransformerAbstract $transformer = null, $resourceKey = null)
+    public function item($data, $transformer = null, $resourceKey = null)
     {
         return $this->makeBuilder(Item::class, $data, $transformer, $resourceKey);
     }
@@ -35,7 +35,7 @@ class FractalService implements FractalServiceContract
     /**
      * @inheritdoc
      */
-    public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null)
+    public function collection($data, $transformer = null, $resourceKey = null)
     {
         return $this->makeBuilder(Collection::class, $data, $transformer, $resourceKey);
     }
@@ -70,17 +70,17 @@ class FractalService implements FractalServiceContract
     /**
      * Creates a builder for serializing data.
      *
-     * @param string                    $resourceClass
-     * @param mixed                    $data
-     * @param TransformerAbstract|null $transformer
-     * @param string|null              $resourceKey
+     * @param string                            $resourceClass
+     * @param mixed                             $data
+     * @param TransformerAbstract|callable|null $transformer
+     * @param string|null                       $resourceKey
      *
      * @return FractalBuilder
      */
     protected function makeBuilder(
         $resourceClass,
         $data,
-        TransformerAbstract $transformer = null,
+        $transformer = null,
         $resourceKey = null
     ) {
         $fractal = $this->makeFractal();

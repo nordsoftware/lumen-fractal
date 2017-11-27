@@ -42,7 +42,7 @@ class FractalBuilder implements FractalBuilderContract
     private $resourceKey;
 
     /**
-     * @var TransformerAbstract
+     * @var TransformerAbstract|callable
      */
     private $transformer;
 
@@ -100,7 +100,7 @@ class FractalBuilder implements FractalBuilderContract
     /**
      * @inheritdoc
      */
-    public function setTransformer(TransformerAbstract $transformer)
+    public function setTransformer($transformer)
     {
         $this->transformer = $transformer;
 
