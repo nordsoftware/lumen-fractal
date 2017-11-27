@@ -15,7 +15,7 @@ interface FractalBuilder
      *
      * @param array $meta
      *
-     * @return FractalBuilder
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/serializers#jsonapiserializer
      */
@@ -26,7 +26,7 @@ interface FractalBuilder
      *
      * @param TransformerAbstract $transformer
      *
-     * @return FractalBuilder
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/transformers/
      */
@@ -38,7 +38,7 @@ interface FractalBuilder
      *
      * @param string $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/transformers/
      */
@@ -53,7 +53,7 @@ interface FractalBuilder
      * 
      * @throws \InvalidArgumentException
      *
-     * @return FractalBuilder
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/pagination#using-paginators
      */
@@ -68,7 +68,7 @@ interface FractalBuilder
      * 
      * @throws \InvalidArgumentException
      *
-     * @return mixed
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/pagination#using-cursors
      */
@@ -80,7 +80,7 @@ interface FractalBuilder
      *
      * @param SerializerAbstract $serializer
      *
-     * @return FractalBuilder
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/serializers/
      */

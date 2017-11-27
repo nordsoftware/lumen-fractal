@@ -16,7 +16,7 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
     public function item($data, TransformerAbstract $transformer = null, $resourceKey = null);
 
@@ -28,7 +28,7 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
     public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null);
 
