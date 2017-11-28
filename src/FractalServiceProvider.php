@@ -5,12 +5,11 @@ namespace Nord\Lumen\Fractal;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Lumen\Application;
 use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalServiceProvider extends ServiceProvider
 {
-    const CONFIG_KEY = 'fractal';
+    private const CONFIG_KEY = 'fractal';
 
     /**
      * @inheritdoc
@@ -20,9 +19,7 @@ class FractalServiceProvider extends ServiceProvider
         $this->app->configure(self::CONFIG_KEY);
 
         $this->registerBindings($this->app, $this->app['config']);
-        $this->registerFacades();
     }
-
 
     /**
      * @param Container        $container
@@ -40,18 +37,6 @@ class FractalServiceProvider extends ServiceProvider
 
         $container->alias(FractalService::class, FractalServiceContract::class);
     }
-
-
-    /**
-     *
-     */
-    protected function registerFacades()
-    {
-        if (!class_exists('Fractal')) {
-            class_alias(FractalFacade::class, 'Fractal');
-        }
-    }
-
 
     /**
      * @param FractalService $service

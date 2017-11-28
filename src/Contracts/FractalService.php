@@ -4,7 +4,6 @@ namespace Nord\Lumen\Fractal\Contracts;
 
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
-use Nord\Lumen\Fractal\FractalBuilder;
 
 interface FractalService
 {
@@ -16,10 +15,9 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
-    public function item($data, TransformerAbstract $transformer = null, $resourceKey = null);
-
+    public function item($data, $transformer = null, ?string $resourceKey = null);
 
     /**
      * Serializes a collection of items.
@@ -28,10 +26,9 @@ interface FractalService
      * @param TransformerAbstract|callable|null $transformer
      * @param string|null                       $resourceKey
      *
-     * @return FractalBuilder
+     * @return $this
      */
-    public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null);
-
+    public function collection($data, $transformer = null, ?string $resourceKey = null);
 
     /**
      * Parses includes from either a string (GET query parameter) or an array
@@ -39,15 +36,18 @@ interface FractalService
      *
      * @param string|array $includes
      *
+     * @return $this
+     *
      * @see http://fractal.thephpleague.com/transformers#including-data
      */
     public function parseIncludes($includes);
-
 
     /**
      * Sets the default serializer to use for serializing data.
      *
      * @param SerializerAbstract $serializer
+     *
+     * @return $this
      *
      * @see http://fractal.thephpleague.com/serializers/
      */

@@ -2,11 +2,12 @@
 
 namespace Nord\Lumen\Fractal;
 
-use Nord\Lumen\Fractal\Contracts\FractalBuilder as FractalBuilderContract;
-use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
+use League\Fractal\Resource\Item;
 use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
+use Nord\Lumen\Fractal\Contracts\FractalService as FractalServiceContract;
 
 class FractalService implements FractalServiceContract
 {
@@ -21,24 +22,21 @@ class FractalService implements FractalServiceContract
      */
     private $defaultSerializer;
 
+    /**
+     * @inheritdoc
+     */
+    public function item($data, $transformer = null, ?string $resourceKey = null)
+    {
+        return $this->makeBuilder(Item::class, $data, $transformer, $resourceKey);
+    }
 
     /**
      * @inheritdoc
      */
-    public function item($data, TransformerAbstract $transformer = null, $resourceKey = null)
+    public function collection($data, $transformer = null, ?string $resourceKey = null)
     {
-        return $this->makeBuilder(FractalBuilderContract::RESOURCE_ITEM, $data, $transformer, $resourceKey);
+        return $this->makeBuilder(Collection::class, $data, $transformer, $resourceKey);
     }
-
-
-    /**
-     * @inheritdoc
-     */
-    public function collection($data, TransformerAbstract $transformer = null, $resourceKey = null)
-    {
-        return $this->makeBuilder(FractalBuilderContract::RESOURCE_COLLECTION, $data, $transformer, $resourceKey);
-    }
-
 
     /**
      * @inheritdoc
@@ -49,9 +47,10 @@ class FractalService implements FractalServiceContract
             $includes = explode(',', $includes);
         }
 
-        $this->includes = array_merge($this->includes, (array) $includes);
-    }
+        $this->includes = array_merge($this->includes, $includes);
 
+        return $this;
+    }
 
     /**
      * @inheritdoc
@@ -59,25 +58,26 @@ class FractalService implements FractalServiceContract
     public function setDefaultSerializer(SerializerAbstract $serializer)
     {
         $this->defaultSerializer = $serializer;
-    }
 
+        return $this;
+    }
 
     /**
      * Creates a builder for serializing data.
      *
-     * @param array                    $resourceClass
-     * @param mixed                    $data
-     * @param TransformerAbstract|null $transformer
-     * @param string|null              $resourceKey
+     * @param string $resourceClass
+     * @param mixed $data
+     * @param TransformerAbstract|callable|null $transformer
+     * @param string|null $resourceKey
      *
      * @return FractalBuilder
      */
     protected function makeBuilder(
-        $resourceClass,
+        string $resourceClass,
         $data,
-        TransformerAbstract $transformer = null,
-        $resourceKey = null
-    ) {
+        $transformer = null,
+        string $resourceKey = null
+    ): FractalBuilder {
         $fractal = $this->makeFractal();
         $builder = new FractalBuilder($fractal, $resourceClass, $data);
 
@@ -92,21 +92,18 @@ class FractalService implements FractalServiceContract
         return $builder;
     }
 
-
     /**
      * @return Manager
      */
-    protected function makeFractal()
+    protected function makeFractal(): Manager
     {
         $fractal = new Manager();
 
-        if (isset($this->defaultSerializer)) {
+        if ($this->defaultSerializer) {
             $fractal->setSerializer($this->defaultSerializer);
         }
 
-        if (isset($this->includes)) {
-            $fractal->parseIncludes($this->includes);
-        }
+        $fractal->parseIncludes($this->includes);
 
         return $fractal;
     }

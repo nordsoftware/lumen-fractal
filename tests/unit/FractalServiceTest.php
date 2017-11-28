@@ -6,10 +6,10 @@ use League\Fractal\Pagination\Cursor;
 use League\Fractal\Serializer\ArraySerializer;
 use League\Fractal\Serializer\DataArraySerializer;
 use Nord\Lumen\Fractal\FractalService;
+use Nord\Lumen\Tests\Files\Author;
 use Nord\Lumen\Tests\Files\Book;
 use Nord\Lumen\Tests\Files\BookPaginator;
 use Nord\Lumen\Tests\Files\BookTransformer;
-use Nord\Lumen\Tests\Files\Author;
 
 class FractalServiceTest extends \Codeception\Test\Unit
 {
@@ -61,6 +61,16 @@ class FractalServiceTest extends \Codeception\Test\Unit
         $this->specify('The book title must equal "Test Book".', function () {
             $item = $this->service->item($this->book, $this->transformer)->toArray();
             verify($item['data']['title'])->equals('Test Book');
+        });
+
+        $this->specify('The book can be serialized with a callable.', function () {
+            $item = $this->service->item($this->book, function (Book $book) {
+                return [
+                    'foo' => 'bar',
+                ];
+            })->toArray();
+
+            $this->assertEquals(['data' => ['foo' => 'bar']], $item);
         });
     }
 
@@ -190,11 +200,6 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $item = $this->service->item($this->book, $this->transformer, 'book')->toArray();
             verify($item)->hasKey('data');
         });
-
-        $this->specify('The fractal builder resource key has to be valid.', function () {
-            $item = $this->service->item($this->book, $this->transformer);
-            $item->setResourceKey(123);
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\InvalidArgument']);
     }
 
     /**
@@ -215,7 +220,7 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $this->service->item($this->book, $this->transformer)
                 ->setPaginator(new BookPaginator([]))
                 ->toArray();
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\NotApplicable']);
+        }, ['throws' => \InvalidArgumentException::class]);
     }
 
     /**
@@ -234,6 +239,6 @@ class FractalServiceTest extends \Codeception\Test\Unit
             $this->service->item($this->book, $this->transformer)
                 ->setCursor(new Cursor())
                 ->toArray();
-        }, ['throws' => 'Nord\Lumen\Fractal\Exceptions\NotApplicable']);
+        }, ['throws' => \InvalidArgumentException::class]);
     }
 }

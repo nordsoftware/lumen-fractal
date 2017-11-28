@@ -1,8 +1,9 @@
 # Lumen Fractal
-[![Build Status](https://travis-ci.org/nordsoftware/lumen-fractal.svg?branch=master)](https://travis-ci.org/nordsoftware/lumen-fractal)
+
+[![Build Status](https://travis-ci.org/digiaonline/lumen-fractal.svg?branch=master)](https://travis-ci.org/digiaonline/lumen-fractal)
 [![Coverage Status](https://coveralls.io/repos/github/nordsoftware/lumen-fractal/badge.svg?branch=master)](https://coveralls.io/github/nordsoftware/lumen-fractal?branch=master)
 [![Code Climate](https://codeclimate.com/github/nordsoftware/lumen-fractal/badges/gpa.svg)](https://codeclimate.com/github/nordsoftware/lumen-fractal)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nordsoftware/lumen-fractal/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nordsoftware/lumen-fractal/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/digiaonline/lumen-fractal/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/digiaonline/lumen-fractal/?branch=master)
 [![StyleCI](https://styleci.io/repos/53199214/shield?style=flat)](https://styleci.io/repos/53199214)
 [![Latest Stable Version](https://poser.pugx.org/nordsoftware/lumen-fractal/version)](https://packagist.org/packages/nordsoftware/lumen-fractal) 
 [![Total Downloads](https://poser.pugx.org/nordsoftware/lumen-fractal/downloads)](https://packagist.org/packages/nordsoftware/lumen-fractal)
@@ -13,9 +14,9 @@
 
 ## Requirements
 
-- PHP 5.6 or newer
+- PHP 7.1 or newer
 - [Composer](http://getcomposer.org)
-- [Lumen](https://lumen.laravel.com/) 5.3 or newer
+- [Lumen](https://lumen.laravel.com/) 5.4 or newer
 
 ## Setup
 
@@ -29,8 +30,8 @@ composer require nordsoftware/lumen-fractal
 
 ### Configuration
 
-Copy the configuration template in `config/fractal.php` to your application's `config` directory and modify according to your needs.
-For more information see the [Configuration Files](http://lumen.laravel.com/docs/configuration#configuration-files) section in the Lumen documentation.
+Copy the configuration template in `config/fractal.php` to your application's `config` directory and modify according 
+to your needs.
 
 Available configuration options:
 
@@ -90,7 +91,7 @@ composer install
 Run the following command to run the test suite:
 
 ```sh
-vendor/bin/codecept run unit
+vendor/bin/codecept run
 ```
 
 ## License
